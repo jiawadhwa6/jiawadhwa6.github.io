@@ -107,6 +107,11 @@
       </li>
 
       <li class="bold">
+        <a aria-label="Navigate to the Dynamic Projects section" href="#dynamic-projects" class="waves-effect waves-dark teal-text"><i
+            class="mdi-av-my-library-books small"></i><span>Dynamic</span></a>
+      </li>
+
+      <li class="bold">
         <!--
         ICONS:
         mdi-action-assessment
@@ -151,7 +156,7 @@
         <!-- <a aria-label="Open Varad's resume in a new tab" href="#resume" target="_blank"
           onclick="window.open('https://drive.google.com/file/d/1vYi-bMyIsZPve0x_clxY8xsDtiHiOMd3/view?usp=sharing')"
           class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a> -->
-        <a aria-label="Open Varad's resume in a new tab" href="https://varadbhogayata.github.io/assets/resume/Varad_Bhogayata_Resume.pdf" target="_blank"
+        <a aria-label="Open Varad's resume in a new tab" href="/Users/jiawadhwa/Desktop/varadbhogayata.github.io/assets/resume/resume.pdf" target="_blank"
         class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>  
       </li>
     </ul>
@@ -183,6 +188,12 @@
         <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
             class="mdi-av-my-library-books small"></i><span>Projects</span></a>
       </li>
+
+            <li class="bold">
+        <a aria-label="Navigate to the Dynamic Projects section" href="#dynamic-projects" class="waves-effect waves-dark teal-text"><i
+            class="mdi-av-my-library-books small"></i><span>Dynamic</span></a>
+      </li>
+
       <li class="bold">
         <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
             class="mdi-action-assessment small"></i><span>Skills</span></a>
@@ -650,6 +661,18 @@
         </div>
       </div>
     </section>
+
+        <!-- Dynamic Projects Section (Activity 5) -->
+    <section id="dynamic-projects" class="section scrollspy">
+      <h3 class="page-title white-text teal">Projects (Dynamic)</h3>
+      <div class="container">
+        <div id="dynamic-projects-list" class="row"></div>
+        <div class="row text-center">
+          <button id="load-more-btn" class="btn waves-effect waves-light teal">Load More</button>
+        </div>
+      </div>
+    </section>
+
     <!-- Fifth Section: Skills -->
     <section id="skills" class="section scrollspy">
       <h3 class="page-title white-text teal">Skills</h3>
@@ -863,6 +886,97 @@
         closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
       })
     })
+  </script>
+
+    <!-- Activity 5: Dynamic Project Content -->
+  <script>
+    const projectsData = [
+      {
+        title: "SentryOT: Passive OT Network Monitoring",
+        image: "/assets/img/ot.png",
+        description: "A passive network anomaly detection system for small manufacturers' OT/ICS networks.",
+        tools: "Modbus/TCP, Isolation Forest, Python"
+      },
+      {
+        title: "Airbus Project Management Challenge",
+        image: "/assets/img/AIRBUS_logo.png",
+        description: "Led a cross-functional team in a project management competition hosted by Airbus.",
+        tools: "Gantt Charts, Critical Path Analysis, Risk Mitigation Planning"
+      },
+      {
+        title: "CropShield: Plant Disease Detection",
+        image: "/assets/img/crop.png",
+        description: "An image recognition model to detect plant diseases using deep learning.",
+        tools: "Python, PyTorch, TensorFlow, Matplotlib"
+      },
+      {
+        title: "LazyWay: GIS System",
+        image: "/assets/img/map.png",
+        description: "A global mapping system built in C++ using the OpenStreetMap database API.",
+        tools: "C++, OpenStreetMap API, A*, Dijkstra, Git"
+      },
+      {
+        title: "SnackTime Slider",
+        image: "/assets/img/snack.png",
+        description: "A Verilog-based sliding puzzle game on FPGA — move snacks around a vending machine to get a chocolate bar out.",
+        tools: "Verilog, FPGA, ModelSim",
+        github: "https://github.com/jiawadhwa6/SnackTime-Slider-Game.git"
+      },
+      {
+        title: "Hospital Management System",
+        image: "/assets/img/hospital.png",
+        description: "A system to manage patient and staff records efficiently.",
+        tools: "Python, MySQL"
+      }
+    ];
+
+    let projectsShown = 0;
+    const projectsPerLoad = 2;
+    const listContainer = document.getElementById("dynamic-projects-list");
+    const loadMoreBtn = document.getElementById("load-more-btn");
+
+    function renderProjectCard(project) {
+      const col = document.createElement("div");
+      col.className = "col s12 m6 l4";
+
+      const githubButton = project.github
+        ? `<a href="${project.github}" target="_blank" class="btn-floating waves-effect waves-light blue-grey"><i class="fa fa-github"></i></a>`
+        : "";
+
+      col.innerHTML = `
+        <div class="card medium">
+          <div class="card-image">
+            <img src="${project.image}" alt="${project.title}" style="height: 200px; width: 100%; object-fit: cover;">
+          </div>
+          <div class="card-content">
+            <span class="card-title teal-text">${project.title}</span>
+            <p>${project.description}</p>
+            <p><b>Tools:</b> ${project.tools}</p>
+          </div>
+          <div class="card-action">
+            ${githubButton}
+          </div>
+        </div>
+      `;
+      return col;
+    }
+
+    function loadMoreProjects() {
+      const nextBatch = projectsData.slice(projectsShown, projectsShown + projectsPerLoad);
+      nextBatch.forEach(project => {
+        listContainer.appendChild(renderProjectCard(project));
+      });
+      projectsShown += nextBatch.length;
+
+      if (projectsShown >= projectsData.length) {
+        loadMoreBtn.style.display = "none";
+      }
+    }
+
+    // Initial load: first 2 projects
+    loadMoreProjects();
+
+    loadMoreBtn.addEventListener("click", loadMoreProjects);
   </script>
 </body>
 
