@@ -19,7 +19,7 @@
   <!-- Font Awesome Icon - CSS-->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
   <!-- Custom Styles-->
-  <link rel="stylesheet" href="/assets/css/style.css?v=4" />
+  <link rel="stylesheet" href="/assets/css/style.css?v=5" />
   <title>Varad Bhogayata | Software Developer</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -148,7 +148,7 @@
 class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>
       </li>
       <li class="bold">
-        <a aria-label="Toggle dark mode" href="#" id="dark-mode-toggle" class="waves-effect waves-dark teal-text"><i
+        <a aria-label="Toggle dark mode" href="#" class="waves-effect waves-dark teal-text dark-mode-toggle"></a><i
             class="mdi-image-brightness-2 small"></i><span>Dark Mode</span></a>
       </li>
     </ul>
@@ -208,7 +208,7 @@ class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small">
       <a aria-label="Open Jia's resume in a new tab" href="https://drive.google.com/file/d/10l_Yv-u5kbhZiwEO4DpGQrKPsALhqMMK/view?usp=sharing" target="_blank"
 class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>
       <li class="bold">
-        <a aria-label="Toggle dark mode" href="#" id="dark-mode-toggle" class="waves-effect waves-dark teal-text"><i
+        <a aria-label="Toggle dark mode" href="#" class="waves-effect waves-dark teal-text dark-mode-toggle"></a><i
             class="mdi-image-brightness-2 small"></i><span>Dark Mode</span></a>
       </li>
     </ul>
@@ -973,25 +973,31 @@ class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small">
     loadMoreBtn.addEventListener("click", loadMoreProjects);
   </script>
 
-    <!-- Activity 6: Dark Mode Toggle -->
-  <script>
-    const darkModeToggle = document.getElementById("dark-mode-toggle");
+<!-- Activity 6: Dark Mode Toggle -->
+<script>
+  const darkModeToggles =
+    document.querySelectorAll(".dark-mode-toggle");
 
-    // Apply saved preference on load
-    if (localStorage.getItem("darkMode") === "enabled") {
-      document.body.classList.add("dark-mode");
-    }
+  // Apply saved preference on load
+  if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+  }
 
-    darkModeToggle.addEventListener("click", function(e) {
+  // Add event listener to both buttons
+  darkModeToggles.forEach(toggle => {
+    toggle.addEventListener("click", function(e) {
       e.preventDefault();
+
       document.body.classList.toggle("dark-mode");
+
       if (document.body.classList.contains("dark-mode")) {
         localStorage.setItem("darkMode", "enabled");
       } else {
         localStorage.setItem("darkMode", "disabled");
       }
     });
-  </script>
+  });
+</script>
 
 </body>
 

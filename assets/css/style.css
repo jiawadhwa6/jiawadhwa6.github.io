@@ -694,6 +694,8 @@ small {
 }
 
 /* Activity 6: Dark Mode */
+
+/* Main page */
 body.dark-mode {
   background-color: #121212;
   color: #e0e0e0;
@@ -703,43 +705,9 @@ body.dark-mode main {
   background: #121212 !important;
 }
 
-body.dark-mode ul.side-nav.fixed li.logo {
-  background-color: #1e1e1e;
-  border-bottom: 1px solid #333;
-}
-
-body.dark-mode ul.side-nav.fixed a {
-  color: #bb86fc;
-}
-
-body.dark-mode .card {
-  background-color: #1e1e1e;
-  color: #e0e0e0;
-}
-
-body.dark-mode .card .card-content p,
-body.dark-mode .card ul li {
-  color: #cfcfcf;
-}
-
-body.dark-mode .card-action {
-  background-color: #2a2a2a !important;
-}
-
-body.dark-mode nav {
-  background-color: #1e1e1e;
-}
-
-body.dark-mode #skills h4 {
-  border-bottom: 1px solid #333;
-}
-
-body.dark-mode #project-search {
-  background-color: #1e1e1e;
-  color: #e0e0e0;
-  border-color: #444;
-}
-
+/* Navigation */
+body.dark-mode nav,
+body.dark-mode ul.side-nav,
 body.dark-mode ul.side-nav.fixed {
   background-color: #1e1e1e !important;
 }
@@ -749,7 +717,92 @@ body.dark-mode ul.side-nav.fixed li.logo {
   border-bottom: 1px solid #333 !important;
 }
 
+body.dark-mode ul.side-nav a,
 body.dark-mode ul.side-nav.fixed a {
+  color: #bb86fc !important;
+}
+
+/* Navigation text */
+body.dark-mode ul.table-of-contents li:not(.logo) a span,
+body.dark-mode ul#slide-out li:not(.logo) a span {
+  color: #e0e0e0 !important;
+}
+
+/* Navigation hover */
+body.dark-mode ul.side-nav li a:hover,
+body.dark-mode ul.side-nav li a.active {
+  background-color: #333 !important;
+}
+
+/* Cards */
+body.dark-mode .card {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0;
+}
+
+body.dark-mode .card .card-content {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode .card .card-content p,
+body.dark-mode .card ul li {
+  color: #cfcfcf;
+}
+
+/* Project card reveal */
+body.dark-mode .card-reveal {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .card-reveal .card-title {
+  color: #bb86fc !important;
+}
+
+/* Card footer */
+body.dark-mode .card-action {
+  background-color: #2a2a2a !important;
+  border-color: #333 !important;
+}
+
+body.dark-mode .card-action span {
+  color: #cfcfcf !important;
+}
+
+/* Headings and text */
+body.dark-mode .brown-text,
+body.dark-mode .brown-text.text-darken-2 {
+  color: #d0b0f5 !important;
+}
+
+body.dark-mode .grey-text {
+  color: #bdbdbd !important;
+}
+
+body.dark-mode .card li a {
+  color: #bb86fc !important;
+}
+
+/* Skills section */
+body.dark-mode #skills h4 {
+  border-bottom: 1px solid #333;
+}
+
+/* Project search */
+body.dark-mode #project-search {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+/* Mobile navigation */
+body.dark-mode .name-title span {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode nav a.button-collapse,
+body.dark-mode nav a.button-collapse i {
   color: #bb86fc !important;
 }
 
