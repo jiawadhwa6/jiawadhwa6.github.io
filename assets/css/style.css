@@ -700,7 +700,7 @@ body.dark-mode {
 }
 
 body.dark-mode main {
-  background-color: #121212;
+  background: #121212 !important;
 }
 
 body.dark-mode ul.side-nav.fixed li.logo {
@@ -738,5 +738,18 @@ body.dark-mode #project-search {
   background-color: #1e1e1e;
   color: #e0e0e0;
   border-color: #444;
+}
+
+body.dark-mode ul.side-nav.fixed {
+  background-color: #1e1e1e !important;
+}
+
+body.dark-mode ul.side-nav.fixed li.logo {
+  background-color: #1e1e1e !important;
+  border-bottom: 1px solid #333 !important;
+}
+
+body.dark-mode ul.side-nav.fixed a {
+  color: #bb86fc !important;
 }
 
