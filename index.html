@@ -159,6 +159,11 @@
         <a aria-label="Open Varad's resume in a new tab" href="/Users/jiawadhwa/Desktop/varadbhogayata.github.io/assets/resume/resume.pdf" target="_blank"
         class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>  
       </li>
+
+      <li class="bold">
+        <a aria-label="Toggle dark mode" href="#" id="dark-mode-toggle" class="waves-effect waves-dark teal-text"><i
+            class="mdi-image-brightness-2 small"></i><span>Dark Mode</span></a>
+      </li>
     </ul>
   </nav>
 
@@ -216,6 +221,10 @@
         <a aria-label="Open Varad's Resume in a new tab"
           href="https://drive.google.com/file/d/1B6MZ1z0-7NsefC3Lm_q-uhib28MTqpE9/view?usp=sharing" target="_blank"
           class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Toggle dark mode" href="#" id="dark-mode-toggle" class="waves-effect waves-dark teal-text"><i
+            class="mdi-image-brightness-2 small"></i><span>Dark Mode</span></a>
       </li>
     </ul>
   </nav>
@@ -978,6 +987,27 @@
 
     loadMoreBtn.addEventListener("click", loadMoreProjects);
   </script>
+
+    <!-- Activity 6: Dark Mode Toggle -->
+  <script>
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+
+    // Apply saved preference on load
+    if (localStorage.getItem("darkMode") === "enabled") {
+      document.body.classList.add("dark-mode");
+    }
+
+    darkModeToggle.addEventListener("click", function(e) {
+      e.preventDefault();
+      document.body.classList.toggle("dark-mode");
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("darkMode", "enabled");
+      } else {
+        localStorage.setItem("darkMode", "disabled");
+      }
+    });
+  </script>
+  
 </body>
 
 </html>
