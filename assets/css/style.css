@@ -806,3 +806,19 @@ body.dark-mode nav a.button-collapse i {
   color: #bb86fc !important;
 }
 
+
+/* Fix sidebar text visibility in dark mode */
+body.dark-mode ul.side-nav.fixed li a span {
+  color: #e0e0e0 !important;
+}
+
+/* Keep sidebar icons purple */
+body.dark-mode ul.side-nav.fixed li a i {
+  color: #bb86fc !important;
+}
+
+/* Highlight the active sidebar item */
+body.dark-mode ul.side-nav.fixed li a.active span {
+  color: #ffffff !important;
+}
+
